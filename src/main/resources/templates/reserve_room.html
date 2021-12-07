@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+</head>
+<body>
+<div>
+    <div align="center">
+        <h1>Rezervasyon</h1>
+        <br />
+        <form action="#" th:action="@{/reservRoom}" th:object="${room}"
+              method="post">
+            <table border="0">
+                
+                <tr>
+                    <td>Oda Adı:</td>
+                    <td><input class="form-control" type="text" th:field="*{name}" readonly="readonly" /></td>
+                </tr>
+                <tr>
+                    <td>Oda tipi:</td>
+                    <td><input class="form-control" type="text" th:field="*{type}" readonly="readonly" /></td>
+                </tr>
+                <tr>
+                    <td>Oda fiyatı:</td>
+                    <td><input class="form-control" type="text" th:field="*{price}" readonly="readonly" /></td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-info mt-4" type="submit">Rezervasyon Yap</button></td>
+                    <td><a class="btn btn-secondary mt-4 ml-2" href="/">İptal</a></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

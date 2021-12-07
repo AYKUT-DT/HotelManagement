@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+</head>
+<body>
+<div>
+    <div align="center">
+        <h1>Kullanıcı Listesi</h1>
+
+        <div class="mb-2" sec:authorize="isAuthenticated()">
+            Hoşgeldin <b><span sec:authentication="name">Username</span></b> &nbsp;
+            <i><span sec:authentication="principal.authorities">Roles</span></i>
+        </div>
+
+        <form class="mb-4" th:action="@{/logout}" method="post">
+            <input class="btn btn-warning text-white" type="submit" value="Çıkış" />
+            <a class="btn btn-secondary" href="/">Anasayfa</a> 
+        </form>
+
+        <div class="btn btn-primary mb-2" sec:authorize="hasAnyAuthority('ADMIN')">
+            <a style="color:white; text-decoration: none;" href="/new">Kullanıcı Ekle</a>
+        </div>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th>Kullanıcı ID</th>
+                    <th>Aktiflik</th>
+                    <th>Kullanıcı Adı</th>
+                    <th sec:authorize="hasAnyAuthority('ADMIN')">İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" th:each="user: ${listUsers}">
+                    <td th:text="${user.id}">User ID</td>
+                    <td th:text="${user.enabled}">User Enabled</td>
+                    <!---<td th:text="${user.password}">User Password</td>-->
+                    <td th:text="${user.username}">User username</td>
+
+                    <td sec:authorize="hasAnyAuthority('ADMIN')">
+            <div sec:authorize="hasAnyAuthority('ADMIN')">
+                <a class="btn btn-info" th:href="@{'/edit/' + ${user.id}}">Güncelle</a>
+                <a class="btn btn-danger" th:href="@{'/delete/' + ${user.id}}">Sil</a>
+            </div>
+
+            </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

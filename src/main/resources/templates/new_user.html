@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+    <title>Kullanıcı ekleme</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+</head>
+<body>
+<div>
+
+    <div align="center">
+        <h1>Yeni Kullanıcı</h1>
+        <br />
+        <form action="#" th:action="@{/save}" th:object="${user}"
+              method="post">
+
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Kullanıcı Adı:</td>
+                    <td><input class="form-control" type="text" th:field="*{username}" /></td>
+                </tr>
+                <tr>
+                    <td>Şifre:</td>
+                    <td><input class="form-control" type="password" th:field="*{password}" /></td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-success" type="submit">Kaydet</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

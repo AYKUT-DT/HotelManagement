@@ -35,10 +35,10 @@ public class Tests {
 
     @Test
     public void testCreateUser() {
-        /*User user = new User();
-        user.setUsername("user2");
-        user.setPassword("us12");
+        User user = new User();
+        user.setUsername("samet");
+        user.setPassword("sa12");
         user.setEnabled(true);
-        repo.save(user);*/
+        repo.save(user);
     }
 }

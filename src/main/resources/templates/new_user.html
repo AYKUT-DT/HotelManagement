@@ -23,11 +23,11 @@ and open the template in the editor.
             <table border="0" cellpadding="10">
                 <tr>
                     <td>Kullanıcı Adı:</td>
-                    <td><input class="form-control" type="text" th:field="*{username}" /></td>
+                    <td><input class="form-control" type="text" th:field="*{username}" required/></td>
                 </tr>
                 <tr>
                     <td>Şifre:</td>
-                    <td><input class="form-control" type="password" th:field="*{password}" /></td>
+                    <td><input class="form-control" type="password" th:field="*{password}" required /></td>
                 </tr>
                 <tr>
                     <td><button class="btn btn-success" type="submit">Kaydet</button></td>

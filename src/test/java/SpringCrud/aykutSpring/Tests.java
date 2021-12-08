@@ -35,10 +35,10 @@ public class Tests {
 
     @Test
     public void testCreateUser() {
-        /*Rezervation rezervation = new Rezervation();
-        rezervation.setName("Deluxe");
-        rezervation.setType("Kral Dairesi");
-        reservRepo.save(rezervation);*/
-
+        /*User user = new User();
+        user.setUsername("user2");
+        user.setPassword("us12");
+        user.setEnabled(true);
+        repo.save(user);*/
     }
 }

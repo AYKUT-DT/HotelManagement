@@ -17,17 +17,18 @@ import SpringCrud.aykutSpring.model.User;
  * @author ASUS
  */
 public class UserDetailsServiceImpl implements UserDetailsService {
-    
+
     @Autowired
     private UserRepository userRepository;
-    
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.getUserByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("Kullanıcı bulunamadı");
         }
+
         return new MyUserDetails(user);
     }
-    
+
 }

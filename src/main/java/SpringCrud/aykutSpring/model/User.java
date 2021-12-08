@@ -77,4 +77,8 @@ public class User implements Serializable {
         this.roles = roles;
     }
 
+    public void setUsername(User ID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

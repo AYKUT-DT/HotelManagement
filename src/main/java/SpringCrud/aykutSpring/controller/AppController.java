@@ -26,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CookieValue;
 
 import org.springframework.web.servlet.ModelAndView;
 
@@ -42,6 +43,7 @@ public class AppController {
     @Autowired
     private RezervationServices reserveRepo;
 
+
     @RequestMapping("/")
     public String viewHomePage1(Model model, Room room, HttpServletRequest request, HttpServletResponse response) {
         List<Room> listRoom = roomService.listAll();
@@ -50,14 +52,12 @@ public class AppController {
         Cookie cookie = new Cookie("Yoneticigirisi1", "Aykut");
         Cookie cookie1 = new Cookie("HotelCookie", "HotelManagement");
 
-        
         cookie.setMaxAge(15);
         // optional properties
         cookie.setSecure(true);
         cookie.setHttpOnly(true);
         cookie.setPath("/");
-        
-        
+
         cookie1.setMaxAge(15);
         // optional properties
         cookie1.setSecure(true);
@@ -163,6 +163,6 @@ public class AppController {
     @RequestMapping("/deleteRez/{id}")
     public String deleteRezPage(@PathVariable(name = "id") Long id) {
         reserveRepo.delete(id);
-        return "redirect:/";
+        return "redirect:/reserve_list";
     }
 }

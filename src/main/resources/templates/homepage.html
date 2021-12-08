@@ -57,7 +57,7 @@ and open the template in the editor.
                 <p th:text="${room.price} + ' ' + TL" class="card-text">Oda Fiyatı</p>
                 <a sec:authorize="hasAnyAuthority('USER')" 
                    th:href="@{'/reservedRoom/' + ${room.id}}" 
-                   class="btn btn-primary">Rezerve Et</a>
+                   class="btn btn-primary" style="display: flex; justify-content: center;;">Rezerve Et</a>
 
                 <a sec:authorize="hasAnyAuthority('ADMIN')" class="btn btn-danger" th:href="@{'/deleteRoom/' + ${room.id}}">Oda Kaldır</a>
             </div>

@@ -11,7 +11,7 @@ public class PasswordEncoder {
 
     public static void main(String[] args) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String rawPassword = "om12";
+        String rawPassword = "us12";
         String encodedPassword = encoder.encode(rawPassword);
         
         System.out.println(encodedPassword);

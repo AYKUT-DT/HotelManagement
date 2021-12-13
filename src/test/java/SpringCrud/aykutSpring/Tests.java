@@ -36,8 +36,8 @@ public class Tests {
     @Test
     public void testCreateUser() {
         User user = new User();
-        user.setUsername("ömer");
-        user.setPassword("om12");
+        user.setUsername("user");
+        user.setPassword("us12");
         user.setEnabled(true);
         repo.save(user);
     }

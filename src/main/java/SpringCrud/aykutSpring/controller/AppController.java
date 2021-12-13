@@ -118,6 +118,13 @@ public class AppController {
         service1.save(user);
         return "redirect:/list_user";
     }
+    
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String updateUser(@ModelAttribute("user") User user) {
+        user.setEnabled(true);
+        service1.save(user);
+        return "redirect:/list_user";
+    }
 
     @RequestMapping("/edit/{id}")
     public ModelAndView showEditUserPage(@PathVariable(name = "id") Long id) {
